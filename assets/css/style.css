@@ -8,8 +8,12 @@
 
 #container img {
 	width: 100%;
-	height: 400px;
+	height: 80vh;
 	object-fit: cover;
+}
+
+header {
+	height: 10vh;
 }
 
 input, .form-control {
@@ -19,4 +23,23 @@ input, .form-control {
 
 .search {
 	margin: 40px auto;
+}
+
+.base {
+	position: relative;
+}
+
+.title {
+	z-index: 10;
+	position: absolute;
+	top: 100px;
+	color: white;
+}
+
+.search {
+	height: 10vh;
+}
+
+.login {
+	display: none;
 }

@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Nasa Magazine</title>
-  
+  <!-- fontawesome -->
+	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -11,68 +12,69 @@
 <body>
 	<section class="login"></section>
 	<header>
-		<nav>
-			<h1>Nasa Views</h1>
+		<nav  class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-3">
+					<h1>Nasa Views</h1>				
+				</div>
+				<div class="col-xs-12 col-sm-9 filterSection">	
+					<input id="day" class="form-control" type="text" placeholder="Select day e.g. dd" required>
+					<select id="month" class="form-control" id="sel1">
+						<option>Select month</option>    	
+						<option value="01">Enero</option>
+						<option value="02">Febrero</option>
+						<option value="03">Marzo</option>
+						<option value="04">Abril</option>
+						<option value="05">Mayo</option>
+						<option value="06">Junio</option>
+						<option value="07">Julio</option>
+						<option value="08">Agosto</option>
+						<option value="09">Septiembre</option>
+						<option value="10">Octubre</option>
+						<option value="11">Noviembre</option>
+						<option value="12">Diciembre</option>			
+					</select>
+					<select id="year" class="form-control" id="sel1">
+						<option>Select year</option>    	
+						<option>2018</option>
+						<option>2017</option>
+						<option>2016</option>
+						<option>2015</option>
+						<option>2014</option>
+						<option>2013</option>
+						<option>2012</option>
+						<option>2011</option>
+						<option>2010</option>
+						<option>2009</option>
+						<option>2008</option>
+						<option>2007</option>
+						<option>2006</option>
+						<option>2005</option>
+						<option>2004</option>
+						<option>2003</option>
+						<option>2002</option>
+						<option>2001</option>
+						<option>2000</option>
+						<option>1999</option>
+						<option>1998</option>
+						<option>1997</option>
+						<option>1996</option>	    
+						<option>1995</option>
+					</select>
+					<input id="btnSearch" type="submit" value="Buscar">
+				</div>
+			</div>
 		</nav>
 	</header>
 	<section id="container"></section>
-	<section class="search container">
-		<div class="row">
-			<div class="col-xs-12 col-sm-3">
-				<input id="day" type="text" placeholder="Select day e.g. dd" required>
+	<section id="slide">
+	<div class="container">
+		<div class="row" id="intro">
+			<div id="descrip" class="col-xs-12 col-sm-10"></div>
+			<div class="col-xs-12 col-sm-2" id="content"><div id="descrip2"><i class="fa fa-arrow-down"></i> Ocultar descripción</div></div>
 			</div>
-			<div class="col-xs-12 col-sm-3">
-				<select id="month" class="form-control" id="sel1">
-					<option>Select month</option>    	
-					<option value="01">Enero</option>
-					<option value="02">Febrero</option>
-					<option value="03">Marzo</option>
-					<option value="04">Abril</option>
-					<option value="05">Mayo</option>
-					<option value="06">Junio</option>
-					<option value="07">Julio</option>
-					<option value="08">Agosto</option>
-					<option value="09">Septiembre</option>
-					<option value="10">Octubre</option>
-					<option value="11">Noviembre</option>
-					<option value="12">Diciembre</option>			
-				</select>
-			</div>
-			<div class="col-xs-12 col-sm-3">
-				<select id="year" class="form-control" id="sel1">
-					<option>Select year</option>    	
-					<option>2018</option>
-					<option>2017</option>
-					<option>2016</option>
-					<option>2015</option>
-					<option>2014</option>
-					<option>2013</option>
-					<option>2012</option>
-					<option>2011</option>
-					<option>2010</option>
-					<option>2009</option>
-					<option>2008</option>
-					<option>2007</option>
-					<option>2006</option>
-					<option>2005</option>
-					<option>2004</option>
-					<option>2003</option>
-					<option>2002</option>
-					<option>2001</option>
-					<option>2000</option>
-					<option>1999</option>
-					<option>1998</option>
-					<option>1997</option>
-					<option>1996</option>	    
-					<option>1995</option>
-				</select>
-			</div>
-			<div class="col-xs-12 col-sm-3">
-				<input id="btnSearch" type="submit" value="Buscar">
-			</div>		
-		</div>		
+		</div>
 	</section>
-	
   <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

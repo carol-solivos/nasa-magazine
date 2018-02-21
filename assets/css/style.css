@@ -6,40 +6,68 @@
 	box-sizing: border-box;
 }
 
+header h1 {
+	color: white;
+	font-size: 2em;
+}
+
+h2 {
+	color: #162256;
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
 #container img {
 	width: 100%;
-	height: 80vh;
+	height: 60vh;
 	object-fit: cover;
+	transition: height 1s;
 }
 
 header {
 	height: 10vh;
+  background: linear-gradient(-90deg, #1F2B77, #000);
 }
 
-input, .form-control {
-	width: 90%;
+.filterSection {
+	height: 10vh;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.form-control {
+	margin: 5px 10px;
+	background-color: transparent;
 	height: 30px;
-}
-
-.search {
-	margin: 40px auto;
-}
-
-.base {
-	position: relative;
-}
-
-.title {
-	z-index: 10;
-	position: absolute;
-	top: 100px;
+	border: none;
+	border-radius: unset;
+	border-bottom: 1px solid white;
 	color: white;
 }
 
-.search {
-	height: 10vh;
+input::placeholder {
+	color: #fff !important;
+}
+
+select option {
+    margin: 40px;
+    background: black;
+    color: #fff;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+}
+
+#btnSearch {
+	background-color: white;
+	border: none;
+	padding: 5px 20px;
 }
 
 .login {
 	display: none;
+}
+
+#slide {
+	background-color: black;
+	cursor: pointer;
 }

@@ -1,5 +1,6 @@
 $(document).ready(() =>{
   $('#second').hide();
+  $('#slide').hide();
 });
 /*-----------
    FIREBASE
@@ -74,6 +75,7 @@ function observador(){
       $('#container').show();
       $('#titulo-logo').hide();
       $('.supLog').hide();
+      $('#slide').show();
 
       console.log('******************');
       console.log('user.emailVerified');
@@ -122,6 +124,7 @@ function aparecer(user){
     $('.supLog').hide();
     $('#second').show();
     $('#container').show();
+    $('#slide').show();
   }
 }
 
@@ -141,6 +144,8 @@ function cerrar(){
   $('#titulo-logo').show();
   $('.supLog').show();
   $('#second').hide();
+  $('#slide').hide();
+  $('#container').hide();
 }
 
 // funcion de verificacion despues de registrarse para mandar correo electronico al 
@@ -260,44 +265,23 @@ $('#btnSearch').click(function() {
         );
       }
       $('#descrip').append(`<p class="exp">${explanation}</p>`);
-      $('#descrip2').html(`<div id="descrip2"><i class="fa fa-arrow-down"></i> Ocultar descripción</div>`);
+      $('#content').html('<i class="fa fa-arrow-down"></i> Ocultar descripción');
     } 
   })
 })
 
-  $('#btnSearch').click(function() {
-    const day = $('#day').val();
-    const month = $('#month').val();
-    const year = $('#year').val();
-    let url = `https://api.nasa.gov/planetary/apod?date=${year}-${month}-${day}&api_key=Tqbm56QokO6KA0u6wjbcnSVeiYwlsq9dNK46y7fE`;
-    $.ajax({
-      url: url,
-      success: function(result){
-        const imgs = result.url;
-        const title = result.title;
-        const explanation = result.explanation;
-        console.log(result);
-        $('#gallery').html(`
-          <div class="base">
-            <div class="fondo">
-              <img src="${imgs}" alt="">
-            </div>
-            <div class="title">
-              <h2>${title}</h2>
-            </div>
-          </div>`
-        );
-      }
-    });
-  });
 
-$('#descrip2').click(function() {
-  $('#content').html(`<div id="descrip3"><i class="fa fa-arrow-up"></i> Mostrar descripción</div>`);
-  $('#descrip p').fadeOut();
-  $('#container img').css('height', '80vh');      
-})
-$('#descrip3').click(function() {
-  $('#content').html(`<div id="descrip2"><i class="fa fa-arrow-down"></i> Ocultar descripción</div>`);
-  $('#descrip p').show();
-  $('#container img').css('height', '60vh'); 
+$('#slide').click(function() {
+  if($('#content').attr('value') === 'hide') {
+    $('#content').html('<i class="fa fa-arrow-up"></i> Mostrar descripción');
+    $('#intro').css({'top':'90vh', 'background':'white', 'height':'10vh'});
+    $('#descrip p').fadeOut(500);
+    $('#content').attr('value','show');
+  }
+  else if($('#content').attr('value') === 'show'){
+    $('#content').html(`<i class="fa fa-arrow-down"></i> Ocultar descripción`);
+    $('#intro').css({'top':'40vh', 'height':'60vh', 'background':'linear-gradient(to bottom, rgba(255,255,255,.6), #fff)'});
+    $('#content').attr('value','hide');
+    $('#descrip p').fadeIn(500);
+  }
 })

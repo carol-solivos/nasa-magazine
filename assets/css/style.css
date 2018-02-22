@@ -9,6 +9,18 @@
 
 /*seccion login, titulo y logo*/
 
+
+#intro {
+  position: absolute;
+  top:40vh;
+  background: linear-gradient(to bottom, rgba(255,255,255,.6), #fff);
+  padding: 15px;
+  width: 100%;
+  height: 60vh;
+  transition: top .5s, height .5s;
+  color: #000 !important;
+}
+
 #loginSection{
 	background-image: url(../img/fondo.jpg);
 	width: 100%;
@@ -49,8 +61,7 @@
 	font-size: 2em;
 }
 
-#myModal
-{
+#myModal{
 	z-index: 100;
 }
 
@@ -110,10 +121,8 @@ button:hover{
 
 #container img {
 	width: 100%;
-	margin: 1em 0;
-	height: 60vh;
-	object-fit: cover;
-	transition: height 1s;
+	height: 80vh;
+	object-fit: center;
 }
 
 .filterSection {
@@ -156,12 +165,9 @@ select option {
 	border: 1px solid #fff;
 }
 
-.login {
-	display: none;
-}
-
 #slide {
 	background-color: black;
 	cursor: pointer;
 }
+
 

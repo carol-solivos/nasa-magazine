@@ -109,8 +109,8 @@ $('#slide').click(function() {
   }
   else if($('#content').attr('value') === 'show'){
     $('#content').html(`<i class="fa fa-arrow-down"></i> Ocultar descripción`);
-    $('#intro').css({'top':'40vh', 'height':'60vh'});
+    $('#intro').css({'top':'40vh', 'height':'60vh', 'background':'linear-gradient(to bottom, rgba(255,255,255,.6), #fff)'});
     $('#content').attr('value','hide');
-
+    $('#descrip p').fadeIn(500);
   }
 })

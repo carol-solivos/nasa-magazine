@@ -100,13 +100,17 @@ $('#btnSearch').click(function() {
   });
 });
 
-$('#descrip2').click(function() {
-  $('#content').html(`<div id="descrip3"><i class="fa fa-arrow-up"></i> Mostrar descripción</div>`);
-  $('#descrip p').fadeOut();
-  $('#container img').css('height', '80vh');      
-})
-$('#descrip3').click(function() {
-  $('#content').html(`<div id="descrip2"><i class="fa fa-arrow-down"></i> Ocultar descripción</div>`);
-  $('#descrip p').show();
-  $('#container img').css('height', '60vh'); 
+$('#slide').click(function() {
+  if($('#content').attr('value') === 'hide') {
+    $('#content').html('<i class="fa fa-arrow-up"></i> Mostrar descripción');
+    $('#intro').css({'top':'85vh', 'background':'white', 'height':'10vh'});
+    $('#descrip p').fadeOut(500);
+    $('#content').attr('value','show');
+  }
+  else if($('#content').attr('value') === 'show'){
+    $('#content').html(`<i class="fa fa-arrow-down"></i> Ocultar descripción`);
+    $('#intro').css({'top':'40vh', 'height':'60vh'});
+    $('#content').attr('value','hide');
+
+  }
 })

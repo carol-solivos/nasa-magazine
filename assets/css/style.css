@@ -19,9 +19,9 @@ h2 {
 
 #container img {
 	width: 100%;
-	height: 60vh;
+	height: 80vh;
 	object-fit: cover;
-	transition: height 1s;
+	object-position: center;
 }
 
 header {
@@ -68,6 +68,15 @@ select option {
 }
 
 #slide {
-	background-color: black;
 	cursor: pointer;
+}
+
+#intro {
+	position: absolute;
+	top:40vh;
+  background: linear-gradient(to bottom, rgba(255,255,255,.6), #fff);
+	padding: 20px;
+	width: 100%;
+	height: 60vh;
+	transition: top .5s;
 }

@@ -95,7 +95,7 @@ $('#btnSearch').click(function() {
         );
       }
       $('#descrip').append(`<p class="exp">${explanation}</p>`);
-      $('#descrip2').html(`<div id="descrip2"><i class="fa fa-arrow-down"></i> Ocultar descripción</div>`);
+      $('#content').html(`<div id="descrip2"><i class="fa fa-arrow-down"></i> Ocultar descripción</div>`);
     } 
   });
 });

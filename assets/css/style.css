@@ -61,6 +61,10 @@
 	font-size: 2em;
 }
 
+.modal-backdrop {
+	z-index: 1 !important;
+}
+
 #myModal{
 	z-index: 100;
 }

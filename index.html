@@ -1,84 +1,177 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <title>Nasa Magazine</title>
   <!-- fontawesome -->
 	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  <!-- responsive -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<!-- enlace fuente -->
+	<link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
+	<!-- enlace bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <!-- firebase -->
+	<!-- conectando a firebase a traves del sitio web -->
+	<script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyCIppXbpiG6UjEHo7O5-15CZPc1nLfREB4",
+	    authDomain: "usuarios-nasa.firebaseapp.com",
+	    databaseURL: "https://usuarios-nasa.firebaseio.com",
+	    projectId: "usuarios-nasa",
+	    storageBucket: "usuarios-nasa.appspot.com",
+	    messagingSenderId: "942933018272"
+	  };
+	  firebase.initializeApp(config);
+	</script>
+	<!-- fin coneccion firebase-->
 </head>
 <body>
-	<section class="login"></section>
-	<header>
-		<nav  class="container">
-			<div class="row">
-				<div class="col-xs-12 col-sm-3">
-					<h1>Nasa Views</h1>				
-				</div>
-				<div class="col-xs-12 col-sm-9 filterSection">	
-					<input id="day" class="form-control" type="text" placeholder="Select day e.g. dd" required>
-					<select id="month" class="form-control" id="sel1">
-						<option>Select month</option>    	
-						<option value="01">Enero</option>
-						<option value="02">Febrero</option>
-						<option value="03">Marzo</option>
-						<option value="04">Abril</option>
-						<option value="05">Mayo</option>
-						<option value="06">Junio</option>
-						<option value="07">Julio</option>
-						<option value="08">Agosto</option>
-						<option value="09">Septiembre</option>
-						<option value="10">Octubre</option>
-						<option value="11">Noviembre</option>
-						<option value="12">Diciembre</option>			
-					</select>
-					<select id="year" class="form-control" id="sel1">
-						<option>Select year</option>    	
-						<option>2018</option>
-						<option>2017</option>
-						<option>2016</option>
-						<option>2015</option>
-						<option>2014</option>
-						<option>2013</option>
-						<option>2012</option>
-						<option>2011</option>
-						<option>2010</option>
-						<option>2009</option>
-						<option>2008</option>
-						<option>2007</option>
-						<option>2006</option>
-						<option>2005</option>
-						<option>2004</option>
-						<option>2003</option>
-						<option>2002</option>
-						<option>2001</option>
-						<option>2000</option>
-						<option>1999</option>
-						<option>1998</option>
-						<option>1997</option>
-						<option>1996</option>	    
-						<option>1995</option>
-					</select>
-					<input id="btnSearch" type="submit" value="Buscar">
+	<!-- section de registro y login -->
+	<section id="loginSection">
+		<div class="container-fluid">
+			<div class="supLog">
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<nav class="navbar">
+						  <div class="form-inline">
+						    <input class="form-control" id="email2" type="mail" placeholder="Ingresa E-mail">
+						    <input class="form-control" id="contrasena2" type="password" placeholder="Ingresa Contrasena">
+						    <button class="btn btn-outline-success" onclick="ingresar()">INGRESAR</button>
+								<button class="btn btn-outline-success" data-toggle="modal" data-target="#myModal">REGISTRAR</button>
+						  </div>
+						</nav>
+					</div>
 				</div>
 			</div>
-		</nav>
-	</header>
-	<section id="container"></section>
-	<section id="slide">
-		<div class="container" id="intro">
+
+			<!-- contenedor donde ira el mensaje de bienvenida y boton de cerrar sesion -->
 			<div class="row">
-				<div id="descrip" class="col-xs-12 col-sm-10"></div>
-				<div class="col-xs-12 col-sm-2" id="content" value='hide'><i class="fa fa-arrow-down"></i> Ocultar descripción</div>
+				<div class="col-md-12">
+					<div id="contenido" >
+						<!-- <div class="col-md-6">	
+							<h4 class="alert-heading">Bienvenido!</h4>
+						</div>
+						<div class="col-md-12">
+							<button onclick="cerrar()" class='btn btn-danger btn-sm'>CERRAR SESION</button>
+						</div> -->						  	
+					</div>	
+				</div>
+			</div>
+		</div> <!-- fin container-fluid -->
+		
+		<!-- seccion titulo y logo -->
+		<div id="titulo-logo">
+			<div class="container-fluid text-center">
+			<!-- row con welcome y logo -->
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<div id="intro2" align="center">
+							<h2 id="welcome-title">Welcome to</h2>
+							<img id="logoNasa" src="assets/img/logo.png" class="img-responsive" alt="logoNasa">
+							<h2 id="welcome-title">Magazine</h2>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-	</section>
+	<!-- </section> -->
+	<!-- fin seccion titulo y logo -->
+		
+	<!-- Modal de Registro-->
+	<div id="myModal" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+			<div class="modal-content">
+	      <div class="modal-header text-center">
+	        <h5 class="modal-title">REGISTRATE!!</h5>
+	      </div>
+	      <div class="modal-body">
+	        <input class="form-control input-modal" id="email" type="mail" placeholder="Ingresa E-mail">
+	        <input class="form-control input-modal" id="contrasena" type="password" placeholder="Ingresa Contrasena">
+	      </div>
+	      <div class="modal-footer">
+	       	<button type="button" class="btn btn-secondary" data-dismiss="modal">CERRAR</button>
+			    <button onclick="registrar()" type="button" class="btn btn-primary">GUARDAR</button>
+	      </div>
+	    </div>
+		</div>
+	</div>
+	<!-- fin modal registro -->
+	<!-- foto del dia y busqueda por fecha -->
+		<!-- <div id="second"> -->
+			<section class="login"></section>
+				<nav id="second" class="container-fluid ">
+					<div class="row">
+						<div class="col-xs-12 col-md-12 filterSection text-center">	
+							<input id="day" class="form-control" type="text" placeholder="Select day e.g. dd" required>
+							<select id="month" class="form-control" id="sel1">
+								<option>Select month</option>    	
+								<option value="01">Enero</option>
+								<option value="02">Febrero</option>
+								<option value="03">Marzo</option>
+								<option value="04">Abril</option>
+								<option value="05">Mayo</option>
+								<option value="06">Junio</option>
+								<option value="07">Julio</option>
+								<option value="08">Agosto</option>
+								<option value="09">Septiembre</option>
+								<option value="10">Octubre</option>
+								<option value="11">Noviembre</option>
+								<option value="12">Diciembre</option>			
+							</select>
+							<select id="year" class="form-control" id="sel1">
+								<option>Select year</option>    	
+								<option>2018</option>
+								<option>2017</option>
+								<option>2016</option>
+								<option>2015</option>
+								<option>2014</option>
+								<option>2013</option>
+								<option>2012</option>
+								<option>2011</option>
+								<option>2010</option>
+								<option>2009</option>
+								<option>2008</option>
+								<option>2007</option>
+								<option>2006</option>
+								<option>2005</option>
+								<option>2004</option>
+								<option>2003</option>
+								<option>2002</option>
+								<option>2001</option>
+								<option>2000</option>
+								<option>1999</option>
+								<option>1998</option>
+								<option>1997</option>
+								<option>1996</option>	    
+								<option>1995</option>
+							</select>
+							<!-- <input id="btnSearch" type="submit" value="Buscar"> -->
+							<button id="btnSearch" class="btn btn-outline-success">BUSCAR</button>
+						</div>
+					</div>
+				</nav>
+
+	<section id="container"></section>
+	<section id="slide">
+        <div class="container" id="intro">
+            <div class="row">
+                <div id="descrip" class="col-xs-12 col-sm-10"></div>
+                <div class="col-xs-12 col-sm-2" id="content" value='hide'><i class="fa fa-arrow-down"></i> Ocultar descripción</div>
+            </div>
+        </div>
+    </section>
+
+	<!-- scripts -->
+	<!-- enlace JQuery -->
   <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>  
+  <!-- bootstrap.js -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="assets/js/app.js"></script>
 </body>
